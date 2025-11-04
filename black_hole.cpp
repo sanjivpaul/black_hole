@@ -41,7 +41,7 @@ struct BlackHole {
         for(int i = 0; i <=100; i++){
             float angle= 2.0f * M_PI * i / 100;
             float x = cos(angle) * r_s + position.x;
-            float y = sin(angle) * r_s + position.y
+            float y = sin(angle) * r_s + position.y;
             glVertex2f(x, y);
 
         }
@@ -93,7 +93,7 @@ Engine engine;
 
 struct Ray {
 
-}
+};
 
 int main(){
     while(!glfwWindowShouldClose(engine.window)){
