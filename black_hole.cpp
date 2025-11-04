@@ -24,6 +24,33 @@ using namespace glm;
 using namespace std;
 using Clock = std::chrono::high_resolution_clock;
 
+struct BlackHole {
+    vec2 position;
+    double mass;
+    double radius;
+    double r_s;
+
+    BlackHole(vec3 pos, float m) : position(pos), mass(m) {r_s = 2.0 * G * mass / (c*c);}
+
+    void draw() {
+        glColor3f(1.0, 0.0, 0.0);
+        glBegin(GL_TRIANGLE_FAN);
+        glVertex2f(position.x, position.y);
+
+
+        for(int i = 0; i <=100; i++){
+            float angle= 2.0f * M_PI * i / 100;
+            float x = cos(angle) * r_s + position.x;
+            float y = sin(angle) * r_s + position.y
+            glVertex2f(x, y);
+
+        }
+        glEnd();
+    }
+
+};
+
+
 struct Engine {
     GLFWwindow* window;
 
@@ -63,12 +90,9 @@ struct Engine {
 
 Engine engine;
 
-struct BlackHole {
-
-};
 
 struct Ray {
-    
+
 }
 
 int main(){
